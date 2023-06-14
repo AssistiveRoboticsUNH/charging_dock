@@ -1,0 +1,30 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 18.01.2012 16:15:51
+
+newmtl 13123_mp3_vehicle_charger_v1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.3330 0.3330 0.3330
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13123_mp3_vehicle_charger_v1_diff.JPG
+	map_Kd 13123_mp3_vehicle_charger_v1_diff.JPG
+
+newmtl Material__0
+	Ns 70.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.6750 0.6750 0.6750
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13123_mp3_vehicle_charger_v1_diff.JPG
+	map_Kd 13123_mp3_vehicle_charger_v1_diff.JPG
