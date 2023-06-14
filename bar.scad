@@ -1,24 +1,19 @@
 $fn=100;
 
 
-//rotate([0,0,90])
-//docking();
+difference(){
+rotate([0,0,90])
+docking();
+
+translate([-40, -20, -10])
+cube([80,100,50]);
+}
 
 //plug_holder1();
 
-difference(){
-plug2();
 
-
-//
-//translate([105,0,10])
-//cube([90,50,50], center=true);
-
-}
-
-
-//cylinder(h=37, d=3, center=true);
-
+//plug2();
+ 
 
 module plug2(){
 //    so far working good. 
@@ -77,6 +72,7 @@ difference(){
 
 
 
+
 module plug_holder1(){
 
 translate([50,-14-2,18]) {
@@ -102,30 +98,55 @@ cube([20, 36, 4], center=true);
 }
 
 
+
 module docking(){
-simplebar();
-translate([0,0,32+1])
-simplebar();
 
-//translate([20,0,14+2.5])
-//cube([5,5,28], center=true);
+mid_h=23.45;
+bar_h=1.9;    
+conn_h=4;
+    
+//mid_h=27.3;  // mid space+2bar
 
-translate([0, 27.5,20-4])
-cube([105,10,37], center=true);
+//23.45+2*1.9
+    
+simplebar(conn_h=conn_h);
+translate([0,0,mid_h+2*bar_h+conn_h])
+simplebar(conn_h=conn_h);
+
+//measurement check
+//translate([20,15, 27.25/2+ conn_h/2])
+//cube([70,30,27.3], center=true);
+
+
+    //back connection
+    translate([0, 32.8 , 20-4.35]) {
+        difference(){
+        cube([105,5,35.25], center=true);
+
+            translate([0, 0,0])
+            rotate([90, 0, 0]){
+                translate([44-4,0,0])
+                cylinder(h=20, d=5 , center=true);
+
+                translate([-44+4,0,0])
+                cylinder(h=20, d=5  , center=true);
+            }
+        }
+    }
     
 }
 
-module simplebar(){
+module simplebar(conn_h=3){ //bar connector
    yoff=20;
    difference(){
        translate([0,yoff/2,0])
-    cube([95+10, 25+yoff, 5], center=true);
+    cube([95+10, 25+yoff, conn_h], center=true);
 
     translate([44-4,0,0])
-    cylinder(h=20, r=3.5 , center=true);
+    cylinder(h=20, d=5  , center=true);
 
     translate([-44+4,0,0])
-    cylinder(h=20, r=3.5 , center=true);
+    cylinder(h=20, d=5 , center=true);
        
            
 //    translate([0,0,-3])
