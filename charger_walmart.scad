@@ -9,66 +9,133 @@ $fn=100;
 //cube([80,100,50]);
 //}
 
+//bump_switch();
+
+cylinder(h=17, d=2.6, center=true);
+
+
+//translate([0,-16,5.5])
 //plug_holder1();
 
 
-//plug2();
+//color("blue", alpha=0.5){
+//    cube([11,15.9,20.9], center=true);
+//}
+
+//plug_switch();
 
  
 //translate([-0.5,-5, 2])
 //load_metal_bar();
 
-//difference(){
-box2();
-
-//translate([0,25, 10])
-//cube([60,100,40], center=true);
+//difference()
+//{
+//dock_walmart();
+////
+////translate([10,-25, 10])
+////cube([60,100,60], center=true);
 //}
 
 //measurement check
-//translate([0,15, 14.4])
+//translate([0,15, 16.4])
 //cube([70,30,26.8], center=true);
 
 //rotate([0,0,90]) {
-//    docking2(); 
+//    docking_screw(); 
 // simplebar(conn_h=3);
 //// translate([40,3,1.5+1.5+2.0])
 ////    cube([10,24.5+8,3], center=true); 
 //}
 
-module box2(){
-    mid_h=23.45;  
+module bump_switch(){
+    h2h_outer=12.3;
+    h2h_d=9.4;
+    
+    
+    d=13;
+    w=18;
+    l=8;
+    difference(){
+    union(){
+        translate([0,0,d/2+1-0.1 ])
+        cube([l, w, 2], center=true);
+        translate([0,0,-d/2 - 1+0.1 ])
+        cube([l, w, 2], center=true);
+        
+        translate([-3-2.5,0,0])
+        cube([3,w-6,d+3.8], center=true);
+        
+        translate([-11, 0, 0])
+        rotate([0,90,0])
+        cylinder(h=8, d=8.4, center=true);
+    }
+    
+
+    
+    translate([1.5, 0, -5]){
+        translate([0, h2h_d/2, 0])
+        cylinder(h=30, d=2.7, center=true);
+        translate([0, -h2h_d/2, 0])
+        cylinder(h=30, d=2.7, center=true);
+    }
+    
+}
+
+    //measurement
+
+//    translate([4,0,5])
+//    color("red", alpha=0.4)
+//    cube([4,h2h_outer, d], center=true);
+    
+    
+}
+
+module dock_walmart(){
+    mid_h=26.5-1-0.5;  
  
  
 //mid_h=27.3;  // mid space+2bar
 
 //23.45+2*1.9
-    
+   
+   difference()
+    { 
+    union(){
 clamp_bar();
-translate([0,0,mid_h+ 5.35])
+translate([0,0,mid_h+ 6.4])
 rotate([0,180,0])
 clamp_bar();
 
-//pillers
-pillers();
-translate([0,88.4,0])
-pillers();
+
+translate([25.5,0, 1 ])
+cube([22,94.4,4], center=true);  
+    
+translate([25.5,0, 30.38 ])
+cube([22,94.4,4], center=true);  
+    
+translate([34.5,0,16 ])
+cube([4,94.4,31], center=true);  
+    }
+    
+////conns
+translate([30,-38 ,16]) 
+rotate([0,90,0])
+  cylinder(h=20, d=5  , center=true);
+ 
+translate([30, 38 ,16]) 
+rotate([0,90,0])
+  cylinder(h=20, d=5  , center=true);
     
     
-//conns
-translate([25,-41.21,27.75]) {
-    difference(){
-cube([22,12,4], center=true);
-  translate([2,0,0])
-  cylinder(h=20, d=5  , center=true);
-    }
-}
-translate([25, 41.21,27.75]) {
-    difference(){
-cube([22,12,4], center=true);
-  translate([2,0,0])
-  cylinder(h=20, d=5  , center=true);
-    }
+    translate([24,-38 ,16]) 
+//rotate([0,90,0])
+  cylinder(h=40, d=5  , center=true);
+ 
+translate([24, 38 ,16]) 
+//rotate([0,90,0])
+  cylinder(h=40, d=5  , center=true);
+    
+    
 }
 
 
@@ -84,7 +151,8 @@ cube([6,6,19], center=true);
 
 
 module clamp_bar(){
-    difference(){
+    difference()
+    {
 rotate([0,0,90]) {
     
     difference(){
@@ -102,7 +170,7 @@ translate([-42.2,0,1.5+3])
 }
 }
 
-c=0.1; //clearence
+c=0.2; //clearence
 translate([0,0,2])
 cube([24.5+c,94.42+c ,1.95+c], center=true); //metal_bar size
 
@@ -133,7 +201,7 @@ import("/home/ns/charger_design/metal_bar.stl", center=true);
 // 
 }
 
-module plug2(){
+module plug_switch(){
 //    so far working good. 
 
 translate([50,0,20])
@@ -191,28 +259,61 @@ difference(){
 
 
 
+
 module plug_holder1(){
-
-translate([50,-14-2,18]) {
+w=11;
+d=15.9-0.3;
+h=21+8;
+ 
     
-    difference(){
+    difference()
+    {
         
-union(){
-cube([20, 4, 40], center=true);
+    union(){
+    //base
+    translate([0,14+2,-14-4])
+    cube([24, d+8, 4], center=true); 
+    
+    //two sides
+    translate([0,6.2,-2])
+    cube([w, 4, h], center=true);
 
-translate([0,28+4,0])
-cube([20, 4, 40], center=true); 
-    
-translate([0,14+2,-14-4])
-cube([20, 36, 4], center=true); 
-}
-    
-    translate([0,15,12])
-    rotate([90,0,0])
-    cylinder(h=50, r=3.5 , center=true);
-       
+    translate([0, d+10.2,-2])
+    cube([w, 4, h], center=true);
+        
+
     }
-}
+        
+        translate([0,15,7.0])
+        rotate([90,0,0])
+        cylinder(h=50, d=5 , center=true);
+           
+   }
+   
+   //base conn 
+        rotate([0,90,0])
+       translate([18,16,23.5]){ 
+           //measurement. 
+//            translate([-10,-15,-29])
+//           cube([10,30,33]);
+           
+        difference(){
+        //base
+            translate([0,0,15])
+        cube([4,d+8,65], center=true); 
+        //    two holes. 
+            translate([0, 0,6.5])
+            rotate([0,90,0]) {
+            cylinder(h=10,d=5, center=true);
+                
+                translate([-30.2, 0,0])
+                cylinder(h=10,d=5, center=true);
+            }
+        } 
+    }
+   
+   
+   
 }
 
 
@@ -285,7 +386,7 @@ module simplebar(conn_h=3){ //bar connector
 
 
 
-module docking2(){
+module docking_screw(){
 
 mid_h=23.45;  //to reduce 0.6mmm
 bar_h=1.9;    
