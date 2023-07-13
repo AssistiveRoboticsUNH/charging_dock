@@ -1,66 +1,59 @@
 $fn=100;
 
 
-//difference(){
-//rotate([0,0,90])
-//docking();
-//
-//translate([-40, -20, -10])
-//cube([80,100,50]);
-//}
-
+ 
 //bump_switch();
+ 
+ color("gray", 0.2){
+ translate([260, 0, -205])
+ scale(1000)
+ import("jackal.stl");
+ }
+ 
 
-//cylinder(h=17, d=2.6, center=true);
-
-
-//cylinder(h=3, d=76.2);
-//
-//cylinder(h=10, d=20);
-
-
-
-//translate([0,-16,5.5])
-
-difference(){
+color("gray", 0.6)
 plug_holder1();
+translate([-15, 28, -6.0])
+ {
+     difference() 
+     {
+ rotate([0,90,-90])
+ scale(7)
+// scale([5,5,5])
+ import("/home/ns/charger_design/13123_mp3_vehicle_charger_v1_L2.stl");
+ 
+translate([48,-10,0])
+cube([50,50,55], center=true);
+         
+     }
+ }
 
-translate([85, -25, -25])
-rotate([0,0,16])
-cube([30,30,20]);
+color("red", 0.4) 
+translate([-32, 8, 8])
+load_metal_bar();
+ 
+color("black", 0.8)
+translate([-32, 8, -20])
+load_metal_bar();
+ 
+color("gray", 0.6)
+translate([-32, 15, 10])
+rotate([0, 180, 0])
+difference()
+{
+dock_walmart();
+//
+//translate([10,-25, 10])
+//cube([60,100,60], center=true);
 }
 
+color("darkgray") {
+translate([-100, 15,-240])
+cube([100,100,60], center=true);
 
-//color("blue", alpha=0.5){
-//    cube([11,15.9,20.9], center=true);
-//}
-//
-//plug_switch();
-
- 
-//translate([-0.5,-5, 2])
-//load_metal_bar();
-
-//difference()
-//{
-//dock_walmart();
-////
-////translate([10,-25, 10])
-////cube([60,100,60], center=true);
-//}
-
-//measurement check
-//translate([0,15, 16.4])
-//cube([70,30,26.8], center=true);
-
-//rotate([0,0,90]) {
-//    docking_screw(); 
-// simplebar(conn_h=3);
-//// translate([40,3,1.5+1.5+2.0])
-////    cube([10,24.5+8,3], center=true); 
-//}
-
-
+translate([-80,15,-90])
+cube([20, 20, 250], center=true);
+}
 
 
 module bump_switch(){
@@ -276,7 +269,6 @@ difference(){
 
 
 
-
 module plug_holder1(){
 w=11;
 d=15.9-0.3;
@@ -287,10 +279,10 @@ h=21+8;
     {
         
     union(){
-    //base 
-    translate([32.5+12.5 ,16 , -18])
-    cube([65+24+25,d+8,4], center=true); 
-        
+    //base
+    translate([0,14+2,-14-4])
+    cube([24, d+8, 4], center=true); 
+    
     //two sides
     translate([0,6.2,-2])
     cube([w, 4, h], center=true);
@@ -300,23 +292,35 @@ h=21+8;
         
 
     }
-     
-        //conn bridge
+        
         translate([0,15,7.0])
         rotate([90,0,0])
         cylinder(h=50, d=5 , center=true);
-    
-        translate([30,16,-16])
-        cylinder(h=10,d=5, center=true);
-    
-        translate([30+30.2,16,-16])
-        cylinder(h=10,d=5, center=true);
-    
-        translate([30+30.2+25,16,-16])
-        cylinder(h=10,d=5, center=true);
-    
            
    }
+   
+   //base conn 
+        rotate([0,90,0])
+       translate([18,16,23.5]){ 
+           //measurement. 
+//            translate([-10,-15,-29])
+//           cube([10,30,33]);
+           
+        difference(){
+        //base
+            translate([0,0,15])
+        cube([4,d+8,65], center=true); 
+        //    two holes. 
+            translate([0, 0,6.5])
+            rotate([0,90,0]) {
+            cylinder(h=10,d=5, center=true);
+                
+                translate([-30.2, 0,0])
+                cylinder(h=10,d=5, center=true);
+            }
+        } 
+    }
+   
    
    
 }

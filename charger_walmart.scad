@@ -11,17 +11,17 @@ $fn=100;
 
 //bump_switch();
 
-cylinder(h=17, d=2.6, center=true);
+//cylinder(h=17, d=2.6, center=true);
 
 
 //translate([0,-16,5.5])
-//plug_holder1();
+plug_holder1();
 
 
 //color("blue", alpha=0.5){
 //    cube([11,15.9,20.9], center=true);
 //}
-
+//
 //plug_switch();
 
  
