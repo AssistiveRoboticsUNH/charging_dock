@@ -4,29 +4,48 @@ $fn=100;
  
 //bump_switch();
  
- color("gray", 0.2){
- translate([260, 0, -205])
- scale(1000)
- import("jackal.stl");
- }
+
  
 
-color("gray", 0.6)
-plug_holder1();
-translate([-15, 28, -6.0])
- {
-     difference() 
-     {
- rotate([0,90,-90])
- scale(7)
-// scale([5,5,5])
- import("/home/ns/charger_design/13123_mp3_vehicle_charger_v1_L2.stl");
- 
-translate([48,-10,0])
-cube([50,50,55], center=true);
-         
-     }
- }
+//color("gray", 0.6)
+//plug_holder1();
+//translate([-15, 28, -6.0])
+// {
+//     difference() 
+//     {
+// rotate([0,90,-90])
+// scale(7)
+//// scale([5,5,5])
+// import("/home/ns/charger_design/13123_mp3_vehicle_charger_v1_L2.stl");
+// 
+//translate([48,-10,0])
+//cube([50,50,55], center=true);
+//         
+//     }
+// }
+
+translate([60,0,0])
+import("plug_org_small.stl");
+
+translate([60,-50,0]){
+translate([0,0,0.5])
+color("red",0.6)
+import("plug_terminal.stl");
+translate([0,0,-0.3])
+color("red",0.6)
+import("plug_terminal.stl");
+    
+
+translate([-55,0,-12.5])
+rotate([0,180,0])
+color("black")
+import("plug_terminal.stl");
+translate([-55,0,-11.8])
+rotate([0,180,0])
+color("black")
+import("plug_terminal.stl");
+    
+}
 
 color("red", 0.4) 
 translate([-32, 8, 8])
@@ -47,14 +66,27 @@ dock_walmart();
 //cube([60,100,60], center=true);
 }
 
-color("darkgray") {
-translate([-100, 15,-240])
-cube([100,100,60], center=true);
+//dock_base();
+//jackal();
 
-translate([-80,15,-90])
-cube([20, 20, 250], center=true);
+
+module jackal(){
+     color("gray", 0.2){
+     translate([260, 0, -205])
+     scale(1000)
+     import("jackal.stl");
+     }
+ }
+ 
+module dock_base(){
+    color("darkgray") {
+    translate([-100, 15,-240])
+    cube([100,100,60], center=true);
+
+    translate([-80,15,-90])
+    cube([20, 20, 250], center=true);
+    }
 }
-
 
 module bump_switch(){
     h2h_outer=12.3;
