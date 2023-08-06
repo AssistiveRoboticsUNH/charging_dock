@@ -4,71 +4,63 @@ $fn=100;
  
 //bump_switch();
  
-
- 
-
-//color("gray", 0.6)
-//plug_holder1();
-//translate([-15, 28, -6.0])
-// {
-//     difference() 
-//     {
-// rotate([0,90,-90])
-// scale(7)
-//// scale([5,5,5])
-// import("/home/ns/charger_design/13123_mp3_vehicle_charger_v1_L2.stl");
-// 
-//translate([48,-10,0])
-//cube([50,50,55], center=true);
-//         
-//     }
-// }
-
-translate([60,0,0])
-import("plug_org_small.stl");
-
-translate([60,-50,0]){
-translate([0,0,0.5])
-color("red",0.6)
-import("plug_terminal.stl");
-translate([0,0,-0.3])
-color("red",0.6)
-import("plug_terminal.stl");
-    
-
-translate([-55,0,-12.5])
-rotate([0,180,0])
-color("black")
-import("plug_terminal.stl");
-translate([-55,0,-11.8])
-rotate([0,180,0])
-color("black")
-import("plug_terminal.stl");
-    
-}
-
-color("red", 0.4) 
-translate([-32, 8, 8])
-load_metal_bar();
- 
-color("black", 0.8)
-translate([-32, 8, -20])
-load_metal_bar();
  
 color("gray", 0.6)
-translate([-32, 15, 10])
-rotate([0, 180, 0])
-difference()
-{
-dock_walmart();
-//
-//translate([10,-25, 10])
-//cube([60,100,60], center=true);
-}
+plug_holder1();
 
+translate([-60,0,0])
+ plug_rb();
+
+
+//dock_walmart_rb(); 
 //dock_base();
 //jackal();
 
+module dock_walmart_rb(){
+    color("red", 0.4) 
+    translate([-32, 8, 8])
+    load_metal_bar();
+     
+    color("black", 0.8)
+    translate([-32, 8, -20])
+    load_metal_bar();
+     
+    color("gray", 0.6)
+    translate([-32, 15, 10])
+    rotate([0, 180, 0])
+    difference()
+    {
+    dock_walmart();
+    //
+    //translate([10,-25, 10])
+    //cube([60,100,60], center=true);
+    } 
+}
+
+module plug_rb(){
+    translate([60,0,0])
+    import("plug_org_small.stl");
+
+    translate([60,-50,0]){
+    translate([0,0,0.5])
+    color("red",0.6)
+    import("plug_terminal.stl");
+    translate([0,0,-0.3])
+    color("red",0.6)
+    import("plug_terminal.stl");
+        
+
+    translate([-55,0,-12.5])
+    rotate([0,180,0])
+    color("black")
+    import("plug_terminal.stl");
+    translate([-55,0,-11.8])
+    rotate([0,180,0])
+    color("black")
+    import("plug_terminal.stl");
+        
+    }
+}
 
 module jackal(){
      color("gray", 0.2){
@@ -132,6 +124,9 @@ module bump_switch(){
 }
 
 module dock_walmart(){
+    
+    
+    
     mid_h=26.5-1-0.5;  
  
  
@@ -233,12 +228,13 @@ module cover(){
 }
 
 module load_metal_bar(){
-scale(1020)
-//rotate([0,0,90])
-import("/home/ns/charger_design/metal_bar.stl", center=true);
+//scale(1020)
+////rotate([0,0,90])
+//import("/home/ns/charger_design/metal_bar.stl", center=true);
     
-    // translate([-5,10,0])
-//cube([94.42, 24.5, 1.95], center=true); 
+    translate([0,7,0])
+    rotate([0,0,90])
+    cube([94.42, 24.5, 1.95], center=true); 
 // 
 }
 
