@@ -5,17 +5,27 @@ $fn=100;
 //dock_walmart();
 //
 //
-////part2: plug mount
+//part2: plug mount
+
+//difference()
+//{
 //translate([-65,-16,10])
-//rotate([0,180,0]) {
+//rotate([0,0,0]) {
 //    //plug_holder1(); 
 //    difference(){
-//    plug_holder2(); 
+////    plug_holder2(); 
+//    plug_holder3();
 //        translate([85, -25, -25])
 //        rotate([0,0,16])
 //        cube([30,30,20]);
 //    }
 //}
+//translate([-55,-50,-15])
+//cube([100,100,100]);
+//
+//}
+
+
 // 
 //
 ////part3: bump switch mount
@@ -26,17 +36,26 @@ $fn=100;
 //}
 
 //part4: sensor mount
-
+translate([-67,0,29])
+rotate([90,0,-90])
 difference(){
     union(){
+        translate([0,-10,-2])
+        cube([15.5,10,6], center=true);
         cube([28,11,2], center=true);
-        translate([12, -3, -4])
-        cylinder(h=5, d=2.5);
-        translate([-12, 3, -4])
-        cylinder(h=5, d=2.5);
+        translate([11.5, -3, -1])
+        cylinder(h=5, d=2.3);
+        translate([-11.5, 3, -1])
+        cylinder(h=5, d=2.3);
+        
+
     }
     translate([4.5,1.5,-2])
     cube([10,10,5]);
+    
+            translate([0,-12.0,-2])
+        rotate([0,90,0])
+        cylinder(h=50, d=4.2 , center=true);
 }
  
 
@@ -193,7 +212,51 @@ import("/home/ns/charger_design/lib_stls/metal_bar.stl", center=true);
 //cube([94.42, 24.5, 1.95], center=true); 
 // 
 }
+module plug_holder3(){
+w=11;
+d=15.9-0.3;
+h=21+8+1;
  
+    
+    difference()
+    {
+        
+    union(){
+    //base 
+    translate([32.5+12.5 ,16 , -18])
+    cube([65+24+25,d+8,4], center=true); 
+        
+        translate([0,0,-1]){
+            //two sides
+            translate([0,6.2,0])
+            cube([w, 4, h], center=true);
+
+            translate([0, d+10.2,0])
+            cube([w, 4, h], center=true);
+        }
+
+    }
+     
+        //conn bridge
+        translate([0,15,6.7])
+        rotate([90,0,0])
+//        cylinder(h=50, d=5 , center=true);
+        cylinder(h=50, d=4.2 , center=true);
+    
+        translate([30,16,-16])
+        cylinder(h=10,d=5, center=true);
+    
+        translate([30+30.2,16,-16])
+        cylinder(h=10,d=5, center=true);
+    
+        translate([30+30.2+25,16,-16])
+        cylinder(h=10,d=5, center=true);
+    
+           
+   }
+   
+   
+}
 module plug_holder2(){
 w=11;
 d=15.9-0.3;
