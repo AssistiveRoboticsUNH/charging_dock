@@ -2,7 +2,7 @@ $fn=100;
 
 //color("yellow", 0.8)
 //difference(){
-//import("plug_org_small.stl");
+//import("lib_stls/plug_org_small.stl");
 //    
 ////    union(){
 ////translate([-15.8,-5,-20])
@@ -78,12 +78,12 @@ module plug_conn_red_black(){
 
     translate([0,0,-2])
     color("red",0.6)
-    import("plug_terminal.stl");
+    import("lib_stls/plug_terminal.stl");
 
     translate([-55,0,-14])
     rotate([0,180,0])
     color("black", 0.7)
-    import("plug_terminal.stl");
+    import("lib_stls/plug_terminal.stl");
 }
  
 
@@ -175,7 +175,7 @@ h=21+8;
 module load_metal_bar(){
 scale(1020)
 //rotate([0,0,90])
-import("/home/ns/charger_design/metal_bar.stl", center=true);
+import("/home/ns/charger_design/lib_stls/metal_bar.stl", center=true);
     
     // translate([-5,10,0])
 //cube([94.42, 24.5, 1.95], center=true); 

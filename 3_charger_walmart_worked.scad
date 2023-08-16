@@ -1,52 +1,29 @@
 $fn=100;
 
+ 
 
-//difference(){
-//rotate([0,0,90])
-//docking();
-//
-//translate([-40, -20, -10])
-//cube([80,100,50]);
-//}
-
-//bump_switch();
-
-//cylinder(h=17, d=2.6, center=true);
+translate([-30,0,15]){
+bump_switch();
+////bump switch connector.
+cylinder(h=17, d=2.6, center=true);
+}
 
 
-//translate([0,-16,5.5])
-plug_holder1();
-
-
-//color("blue", alpha=0.5){
-//    cube([11,15.9,20.9], center=true);
-//}
-//
-//plug_switch();
+translate([-65,-16,10])
+rotate([0,180,0]) {
+    //plug_holder1(); 
+    difference(){
+    plug_holder2(); 
+        translate([85, -25, -25])
+        rotate([0,0,16])
+        cube([30,30,20]);
+    }
+}
+ 
+dock_walmart();
+ 
 
  
-//translate([-0.5,-5, 2])
-//load_metal_bar();
-
-//difference()
-//{
-//dock_walmart();
-////
-////translate([10,-25, 10])
-////cube([60,100,60], center=true);
-//}
-
-//measurement check
-//translate([0,15, 16.4])
-//cube([70,30,26.8], center=true);
-
-//rotate([0,0,90]) {
-//    docking_screw(); 
-// simplebar(conn_h=3);
-//// translate([40,3,1.5+1.5+2.0])
-////    cube([10,24.5+8,3], center=true); 
-//}
-
 module bump_switch(){
     h2h_outer=12.3;
     h2h_d=9.4;
@@ -194,71 +171,56 @@ module cover(){
 module load_metal_bar(){
 scale(1020)
 //rotate([0,0,90])
-import("/home/ns/charger_design/metal_bar.stl", center=true);
+import("/home/ns/charger_design/lib_stls/metal_bar.stl", center=true);
     
     // translate([-5,10,0])
 //cube([94.42, 24.5, 1.95], center=true); 
 // 
 }
-
-module plug_switch(){
-//    so far working good. 
-
-translate([50,0,20])
-rotate([0,90,0]) {
+ 
+module plug_holder2(){
+w=11;
+d=15.9-0.3;
+h=21+8;
+ 
     
-difference(){ 
-    union(){ 
-        difference()
-        {
-            translate([0,0,10])
-        cylinder(h=40, r=13.6+2, center=true);
-            translate([0, 0,10])
-        cylinder(h=40+10 , r=13.6, center=true);
-            
-            translate([-20,0,5])
-        cube([20, 40, 50+10], center=true);
-        }
+    difference()
+    {
         
-//        two sides
+    union(){
+    //base 
+    translate([32.5+12.5 ,16 , -18])
+    cube([65+24+25,d+8,4], center=true); 
+        
+    //two sides
+    translate([0,6.2,-2])
+    cube([w, 4, h], center=true);
 
-//        translate([-8,13.5,-20])
-//        cube([10, 2 , 40]);
-//
-//        translate([-8,-13.5-2,-20])
-//        cube([10, 2 , 40]);
+    translate([0, d+10.2,-2])
+    cube([w, 4, h], center=true);
+        
+
     }
-
-//    connector hole. 
-    translate([0, 0,0])
-    rotate([90,0,0])
-    cylinder(h=50, d=3.5 , center=true);
-       
+     
+        //conn bridge
+        translate([0,15,7.0])
+        rotate([90,0,0])
+        cylinder(h=50, d=5 , center=true);
+    
+        translate([30,16,-16])
+        cylinder(h=10,d=5, center=true);
+    
+        translate([30+30.2,16,-16])
+        cylinder(h=10,d=5, center=true);
+    
+        translate([30+30.2+25,16,-16])
+        cylinder(h=10,d=5, center=true);
+    
+           
+   }
+   
+   
 }
-
-    translate([16,0,40]){ 
-        difference(){
-        //base
-        cube([4,20,100], center=true); 
-        //    two holes. 
-            translate([0, 0,6.5])
-            rotate([0,90,0]) {
-            cylinder(h=10,d=5.5, center=true);
-                
-                translate([-30, 0,0])
-                cylinder(h=10,d=5.5, center=true);
-            }
-        } 
-    }
-
-}
-}
-
-
-
-
-
-
 
 module plug_holder1(){
 w=11;

@@ -12,9 +12,9 @@ translate([-60,0,0])
  plug_rb();
 
 
-//dock_walmart_rb(); 
-//dock_base();
-//jackal();
+dock_walmart_rb(); 
+dock_base();
+jackal();
 
 module dock_walmart_rb(){
     color("red", 0.4) 
@@ -39,25 +39,25 @@ module dock_walmart_rb(){
 
 module plug_rb(){
     translate([60,0,0])
-    import("plug_org_small.stl");
+    import("lib_stls/plug_org_small.stl");
 
     translate([60,-50,0]){
     translate([0,0,0.5])
     color("red",0.6)
-    import("plug_terminal.stl");
+    import("lib_stls/plug_terminal.stl");
     translate([0,0,-0.3])
     color("red",0.6)
-    import("plug_terminal.stl");
+    import("lib_stls/plug_terminal.stl");
         
 
     translate([-55,0,-12.5])
     rotate([0,180,0])
     color("black")
-    import("plug_terminal.stl");
+    import("lib_stls/plug_terminal.stl");
     translate([-55,0,-11.8])
     rotate([0,180,0])
     color("black")
-    import("plug_terminal.stl");
+    import("lib_stls/plug_terminal.stl");
         
     }
 }
@@ -66,7 +66,7 @@ module jackal(){
      color("gray", 0.2){
      translate([260, 0, -205])
      scale(1000)
-     import("jackal.stl");
+     import("lib_stls/jackal.stl");
      }
  }
  
@@ -124,6 +124,7 @@ module bump_switch(){
 }
 
 module dock_walmart(){
+    //main docking socket
     
     
     
@@ -237,65 +238,7 @@ module load_metal_bar(){
     cube([94.42, 24.5, 1.95], center=true); 
 // 
 }
-
-module plug_switch(){
-//    so far working good. 
-
-translate([50,0,20])
-rotate([0,90,0]) {
-    
-difference(){ 
-    union(){ 
-        difference()
-        {
-            translate([0,0,10])
-        cylinder(h=40, r=13.6+2, center=true);
-            translate([0, 0,10])
-        cylinder(h=40+10 , r=13.6, center=true);
-            
-            translate([-20,0,5])
-        cube([20, 40, 50+10], center=true);
-        }
-        
-//        two sides
-
-//        translate([-8,13.5,-20])
-//        cube([10, 2 , 40]);
-//
-//        translate([-8,-13.5-2,-20])
-//        cube([10, 2 , 40]);
-    }
-
-//    connector hole. 
-    translate([0, 0,0])
-    rotate([90,0,0])
-    cylinder(h=50, d=3.5 , center=true);
-       
-}
-
-    translate([16,0,40]){ 
-        difference(){
-        //base
-        cube([4,20,100], center=true); 
-        //    two holes. 
-            translate([0, 0,6.5])
-            rotate([0,90,0]) {
-            cylinder(h=10,d=5.5, center=true);
-                
-                translate([-30, 0,0])
-                cylinder(h=10,d=5.5, center=true);
-            }
-        } 
-    }
-
-}
-}
-
-
-
-
-
-
+  
 
 module plug_holder1(){
 w=11;
@@ -423,39 +366,4 @@ module simplebar(conn_h=3){ //bar connector
 
 
 
-module docking_screw(){
-
-mid_h=23.45;  //to reduce 0.6mmm
-bar_h=1.9;    
-conn_h=4;
-    
-//mid_h=27.3;  // mid space+2bar
-
-//23.45+2*1.9
-    
-simplebar(conn_h=conn_h);
-translate([0,0,mid_h+2*bar_h+conn_h])
-simplebar(conn_h=conn_h);
-
-//measurement check
-//translate([20,15, 27.25/2+ conn_h/2])
-//cube([70,30,27.3], center=true);
-
-
-    //back connection
-    translate([0, 32.8 , 20-4.35]) {
-        difference(){
-        cube([105,5,35.25], center=true);
-
-            translate([0, 0,0])
-            rotate([90, 0, 0]){
-                translate([44-4,0,0])
-                cylinder(h=20, d=5 , center=true);
-
-                translate([-44+4,0,0])
-                cylinder(h=20, d=5  , center=true);
-            }
-        }
-    }
-    
-}
+ 

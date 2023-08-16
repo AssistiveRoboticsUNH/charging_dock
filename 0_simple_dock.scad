@@ -4,23 +4,23 @@
 dock();
 robot();
  
-//color("gray",0.6) {
-//    robot();
-//    
-//    translate([0,5,0])
-//rotate([0,0,30])
-//robot();
-//    
-//    translate([0,-5,0])
-//rotate([0,0,-30])
-//robot();
-//    
-//    translate([0,20,0])
-//    robot();
-//   
-//    translate([0,-20,0])
-//    robot();
-//}
+color("gray",0.6) {
+    robot();
+    
+    translate([0,5,0])
+rotate([0,0,30])
+robot();
+    
+    translate([0,-5,0])
+rotate([0,0,-30])
+robot();
+    
+    translate([0,20,0])
+    robot();
+   
+    translate([0,-20,0])
+    robot();
+}
 
  
 module dock(){
@@ -44,7 +44,7 @@ module robot(){
  {
  rotate([0,90,-90])
  scale(2)
- import("/home/ns/charger_design/13123_mp3_vehicle_charger_v1_L2.stl");
+ import("/home/ns/charger_design/lib_stls/13123_mp3_vehicle_charger_v1_L2.stl");
  
 //translate([26,0,0])
 //cube([20,20,15], center=true);

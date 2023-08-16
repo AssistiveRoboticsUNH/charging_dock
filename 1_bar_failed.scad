@@ -9,14 +9,14 @@ $fn=100;
 //cube([80,100,50]);
 //}
 
-//plug_holder1();
+plug_holder1();
 
 
-//plug2();
+plug2();
 
  
-//translate([-0.5,-5, 2])
-//load_metal_bar();
+translate([-0.5,-5, 2])
+load_metal_bar();
 
 //difference(){
 box2();
@@ -126,7 +126,7 @@ module cover(){
 module load_metal_bar(){
 scale(1020)
 //rotate([0,0,90])
-import("/home/ns/charger_design/metal_bar.stl", center=true);
+import("/home/ns/charger_design/lib_stls/metal_bar.stl", center=true);
     
     // translate([-5,10,0])
 //cube([94.42, 24.5, 1.95], center=true); 
