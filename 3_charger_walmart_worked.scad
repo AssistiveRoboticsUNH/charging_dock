@@ -1,29 +1,45 @@
 $fn=100;
 
- 
 
-translate([-30,0,15]){
-bump_switch();
-////bump switch connector.
-cylinder(h=17, d=2.6, center=true);
-}
+//part1: main dock
+//dock_walmart();
+//
+//
+////part2: plug mount
+//translate([-65,-16,10])
+//rotate([0,180,0]) {
+//    //plug_holder1(); 
+//    difference(){
+//    plug_holder2(); 
+//        translate([85, -25, -25])
+//        rotate([0,0,16])
+//        cube([30,30,20]);
+//    }
+//}
+// 
+//
+////part3: bump switch mount
+//translate([-30,0,15]){
+//bump_switch();
+//////bump switch connector.
+//cylinder(h=17, d=2.6, center=true);
+//}
 
+//part4: sensor mount
 
-translate([-65,-16,10])
-rotate([0,180,0]) {
-    //plug_holder1(); 
-    difference(){
-    plug_holder2(); 
-        translate([85, -25, -25])
-        rotate([0,0,16])
-        cube([30,30,20]);
+difference(){
+    union(){
+        cube([28,11,2], center=true);
+        translate([12, -3, -4])
+        cylinder(h=5, d=2.5);
+        translate([-12, 3, -4])
+        cylinder(h=5, d=2.5);
     }
+    translate([4.5,1.5,-2])
+    cube([10,10,5]);
 }
  
-dock_walmart();
- 
 
- 
 module bump_switch(){
     h2h_outer=12.3;
     h2h_d=9.4;
@@ -348,39 +364,4 @@ module simplebar(conn_h=3){ //bar connector
 
 
 
-module docking_screw(){
-
-mid_h=23.45;  //to reduce 0.6mmm
-bar_h=1.9;    
-conn_h=4;
-    
-//mid_h=27.3;  // mid space+2bar
-
-//23.45+2*1.9
-    
-simplebar(conn_h=conn_h);
-translate([0,0,mid_h+2*bar_h+conn_h])
-simplebar(conn_h=conn_h);
-
-//measurement check
-//translate([20,15, 27.25/2+ conn_h/2])
-//cube([70,30,27.3], center=true);
-
-
-    //back connection
-    translate([0, 32.8 , 20-4.35]) {
-        difference(){
-        cube([105,5,35.25], center=true);
-
-            translate([0, 0,0])
-            rotate([90, 0, 0]){
-                translate([44-4,0,0])
-                cylinder(h=20, d=5 , center=true);
-
-                translate([-44+4,0,0])
-                cylinder(h=20, d=5  , center=true);
-            }
-        }
-    }
-    
-}
+ 
