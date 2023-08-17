@@ -7,23 +7,23 @@ $fn=100;
 //
 //part2: plug mount
 
-//difference()
-//{
-//translate([-65,-16,10])
-//rotate([0,0,0]) {
-//    //plug_holder1(); 
-//    difference(){
-////    plug_holder2(); 
-//    plug_holder3();
-//        translate([85, -25, -25])
-//        rotate([0,0,16])
-//        cube([30,30,20]);
-//    }
-//}
+difference()
+{
+translate([-65,-16,10])
+rotate([0,0,0]) {
+    //plug_holder1(); 
+    difference(){
+//    plug_holder2(); 
+    plug_holder3();
+        translate([85, -25, -25])
+        rotate([0,0,16])
+        cube([30,30,20]);
+    }
+}
 //translate([-55,-50,-15])
 //cube([100,100,100]);
-//
-//}
+
+}
 
 
 // 
@@ -36,27 +36,27 @@ $fn=100;
 //}
 
 //part4: sensor mount
-translate([-67,0,29])
-rotate([90,0,-90])
-difference(){
-    union(){
-        translate([0,-10,-2])
-        cube([15.5,10,6], center=true);
-        cube([28,11,2], center=true);
-        translate([11.5, -3, -1])
-        cylinder(h=5, d=2.3);
-        translate([-11.5, 3, -1])
-        cylinder(h=5, d=2.3);
-        
-
-    }
-    translate([4.5,1.5,-2])
-    cube([10,10,5]);
-    
-            translate([0,-12.0,-2])
-        rotate([0,90,0])
-        cylinder(h=50, d=4.2 , center=true);
-}
+//translate([-67,0,29])
+//rotate([90,0,-90])
+//difference(){
+//    union(){
+//        translate([0,-10,-2])
+//        cube([15.5,10,6], center=true);
+//        cube([28,11,2], center=true);
+//        translate([11.5, -3, -1])
+//        cylinder(h=5, d=2.3);
+//        translate([-11.5, 3, -1])
+//        cylinder(h=5, d=2.3);
+//        
+//
+//    }
+//    translate([4.5,1.5,-2])
+//    cube([10,10,5]);
+//    
+//            translate([0,-12.0,-2])
+//        rotate([0,90,0])
+//        cylinder(h=50, d=4.2 , center=true);
+//}
  
 
 module bump_switch(){
@@ -223,8 +223,8 @@ h=21+8+1;
         
     union(){
     //base 
-    translate([32.5+12.5 ,16 , -18])
-    cube([65+24+25,d+8,4], center=true); 
+    translate([32.5+12.5 ,16 , -18.5])
+    cube([65+24+25,d+8,5], center=true); 
         
         translate([0,0,-1]){
             //two sides
@@ -238,7 +238,7 @@ h=21+8+1;
     }
      
         //conn bridge
-        translate([0,15,6.7])
+        translate([0,15,7.7])
         rotate([90,0,0])
 //        cylinder(h=50, d=5 , center=true);
         cylinder(h=50, d=4.2 , center=true);
