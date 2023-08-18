@@ -2,15 +2,15 @@ $fn=100;
 
 
 //part1: main dock
-//dock_walmart();
-//
-//
+dock_walmart();
+
+
 //part2: plug mount
 
 difference()
 {
-translate([-65,-16,10])
-rotate([0,0,0]) {
+translate([-65,16,10])
+rotate([0,0,180]) {
     //plug_holder1(); 
     difference(){
 //    plug_holder2(); 
@@ -26,37 +26,39 @@ rotate([0,0,0]) {
 }
 
 
-// 
-//
-////part3: bump switch mount
-//translate([-30,0,15]){
-//bump_switch();
-//////bump switch connector.
-//cylinder(h=17, d=2.6, center=true);
-//}
+ 
+
+//part3: bump switch mount
+translate([-30,0,15])
+bump_switch(); 
+
+//part 3.5: bump switch connector 
+translate([-30,15,15])
+cylinder(h=17, d=2.6, center=true);
+
 
 //part4: sensor mount
-//translate([-67,0,29])
-//rotate([90,0,-90])
-//difference(){
-//    union(){
-//        translate([0,-10,-2])
-//        cube([15.5,10,6], center=true);
-//        cube([28,11,2], center=true);
-//        translate([11.5, -3, -1])
-//        cylinder(h=5, d=2.3);
-//        translate([-11.5, 3, -1])
-//        cylinder(h=5, d=2.3);
-//        
-//
-//    }
-//    translate([4.5,1.5,-2])
-//    cube([10,10,5]);
-//    
-//            translate([0,-12.0,-2])
-//        rotate([0,90,0])
-//        cylinder(h=50, d=4.2 , center=true);
-//}
+translate([-67,0,45])
+rotate([90,0, 90])
+difference(){
+    union(){
+        translate([0,-10,-2])
+        cube([15.5,10,6], center=true);
+        cube([28,11,2], center=true);
+        translate([11.5, -3, -1])
+        cylinder(h=5, d=2.3);
+        translate([-11.5, 3, -1])
+        cylinder(h=5, d=2.3);
+        
+
+    }
+    translate([4.5,1.5,-2])
+    cube([10,10,5]);
+    
+            translate([0,-12.0,-2])
+        rotate([0,90,0])
+        cylinder(h=50, d=4.2 , center=true);
+}
  
 
 module bump_switch(){
