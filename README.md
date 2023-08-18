@@ -50,3 +50,8 @@ cylinder(h=17, d=2.6, center=true);
 * Use any arduino to read this sensors. Standard switch and proximity sensor code will work.
 
 
+
+### Working Model
+
+<img src="imgs_real/final.jpg">
+
