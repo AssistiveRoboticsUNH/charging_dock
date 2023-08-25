@@ -55,3 +55,7 @@ cylinder(h=17, d=2.6, center=true);
 
 <img src="imgs_real/final.jpg">
 
+### Sensors
+* Bump sensor and proximity sensor
+* arduino code Arduino directory
+* smartplug wifi python control smartplug directory
