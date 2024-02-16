@@ -155,9 +155,12 @@ rotate([0,90,0])
  
 //back, big hole
 translate([30, 0 ,16]) 
-rotate([0,90,0])
+rotate([0,90,0]) {
   cylinder(h=20, d=15  , center=true);
-    
+
+    translate([0,0,7])
+    cube([13,22,15], center=true);
+}
     
     // top to bottom
     translate([24,-38 ,16]) 
@@ -169,9 +172,9 @@ translate([24, 38 ,16])
   cylinder(h=40, d=5  , center=true);
     
     
-     // inside, notch level
-    translate([0,-31 ,16])  
-  cylinder(h=40, d=7  , center=true);
+//     // inside, notch level
+//    translate([0,-31 ,16])  
+//  cylinder(h=40, d=7  , center=true);
     
     
 }
